@@ -3,3 +3,52 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/*container*/
+
+.container-sm{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+/*header*/
+
+.header{
+    margin-top: 20px;
+    height: 70px;
+    line-height: 70px;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+
+.d-flex{
+    display: flex;
+}
+/**Main**/
+.main{
+    
+    background-color: gray;
+    padding: 40px;
+    margin-top: 50px;
+    justify-content: center;
+    height: 700px;
+}
+
+.grid{
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+}
