@@ -33,11 +33,6 @@
     display: flex;
 }
 /**Main**/
-.main{
-    
-    justify-content: center;
-    
-}
 
 .grid{
     flex-wrap: wrap;

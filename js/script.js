@@ -21,6 +21,7 @@ function getCells(){
 
 // eleemnti  del DOM
 const button=document.getElementById('bottone');
+const dell=document.getElementById('bottone-canc');
 const difficulty=document.getElementById('difficult');
 const grid=document.getElementById('grid-container');
 
@@ -49,14 +50,16 @@ button.addEventListener('click', function (){
     for( let i=0; i<totalCell; i++){
         const cells=getCells();
         grid.appendChild(cells)
+        const cellNumber=getRandomNumber(1, totalCell)
+        cells.innerText= cellNumber
 
         cells.addEventListener('click', () =>{
             cells.classList.toggle('clicked')
 
         })
+        dell.addEventListener('click',()=>{
+            cells.classList.remove('cell');
+            cells.innerText= '';
+        })
     }
-
-    
-    
-    
 })
