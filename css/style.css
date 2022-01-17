@@ -12,8 +12,11 @@
 }
 
 .container{
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
+    background-color: gray;
+    padding: 40px;
+    margin-top: 50px;
 }
 
 /*header*/
@@ -32,23 +35,21 @@
 /**Main**/
 .main{
     
-    background-color: gray;
-    padding: 40px;
-    margin-top: 50px;
     justify-content: center;
-    height: 700px;
+    
 }
 
 .grid{
+    flex-wrap: wrap;
+    display: flex;
     width: 500px;
     height: 500px;
     border: 1px solid red;
-    display: flex;
-    flex-wrap: wrap;
 }
 
 .cell{
-    width: 30px;
-    height: 30px;
-    border: 1px solid black;
+    display: inline-block;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid rgb(112, 112, 112);
 }

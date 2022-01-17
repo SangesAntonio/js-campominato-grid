@@ -7,26 +7,34 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.*/
 
 
 //?Funzioni essenziali
+function getRandomNumber( min, max){
+    return Math.floor(Math.random()  * (max - min +1) + min) ;
+}
 
-
+//creo celle
+function getCells(){
+    const cells=document.createElement('div');
+    cells.className=('cell');
+    return cells;
+}
 
 
 // eleemnti  del DOM
 const button=document.getElementById('bottone');
 const difficulty=document.getElementById('difficult');
+const grid=document.getElementById('grid-container');
 
 
 //***SVOLGIMENTO  */
 
 button.addEventListener('click', function (){
-
-    let cell;
-    let coll;
-    const totalCell= cell * coll;
+    //valore di cell e coll a seconda della scelta
+    let cell= 0;
+    let coll= 0;
     
     if(difficulty.value == 1){
-        cell = 10
-        coll = 10
+        cell = 10;
+        coll = 10;
     }else if( difficulty.value == 2){
         cell = 9;
         coll = 9;
@@ -35,9 +43,14 @@ button.addEventListener('click', function (){
         cell = 7;
         coll = 7;
     }
-    
-    console.log(cell, coll)
-    
+    const totalCell= cell * coll;
+    console.log(totalCell)
+
+    for( let i=0; i<totalCell; i++){
+        const cells=getCells();
+        grid.appendChild(cells)
+    }
+
     
     
     
