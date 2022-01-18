@@ -12,16 +12,18 @@ function getRandomNumber( min, max){
 }
 
 //creo celle
-function getCells(){
-    const cells=document.createElement('div');
-    cells.className=('cell');
-    return cells;
+function getCell(cellsPerRow,){
+    const cell=document.createElement('div');
+    cell.className=('cell');
+    const lenghtCell=`calc(100% / ${cellsPerRow})` ;
+    cell.style.width=lenghtCell;
+    cell.style.height=lenghtCell;
+    return cell;
 }
 
 
 // eleemnti  del DOM
 const button=document.getElementById('bottone');
-const dell=document.getElementById('bottone-canc');
 const difficulty=document.getElementById('difficult');
 const grid=document.getElementById('grid-container');
 
@@ -30,36 +32,33 @@ const grid=document.getElementById('grid-container');
 
 button.addEventListener('click', function (){
     //valore di cell e coll a seconda della scelta
-    let cell= 0;
-    let coll= 0;
+    grid.innerText=' ';
+    let cellPerRow= 0;
+    let totalCell;
     
-    if(difficulty.value == 1){
-        cell = 10;
-        coll = 10;
-    }else if( difficulty.value == 2){
-        cell = 9;
-        coll = 9;
-        
-    }else{
-        cell = 7;
-        coll = 7;
+    switch(difficulty.value){
+        case '1':
+            totalCell = 100;
+            break;
+        case '3':
+            totalCell= 49;
+            break;
+        default:
+            totalCell = 81;
     }
-    const totalCell= cell * coll;
+    cellPerRow= Math.sqrt(totalCell);
+    
     console.log(totalCell)
 
-    for( let i=0; i<totalCell; i++){
-        const cells=getCells();
+    for( let i=1; i<=totalCell; i++){
+        const cells=getCell(cellPerRow);
         grid.appendChild(cells)
-        const cellNumber=getRandomNumber(1, totalCell)
+        const cellNumber=i
         cells.innerText= cellNumber
 
         cells.addEventListener('click', () =>{
             cells.classList.toggle('clicked')
 
-        })
-        dell.addEventListener('click',()=>{
-            cells.classList.remove('cell');
-            cells.innerText= '';
         })
     }
 })
